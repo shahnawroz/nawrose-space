@@ -28,7 +28,7 @@ export default function Projects() {
       : projects.filter((p) => p.category === filter);
 
   return (
-    <section id="projects" className="section-padding relative bg-[var(--bg-primary)]" ref={sectionRef}>
+    <section id="projects" className="section-padding relative overflow-hidden bg-[var(--bg-primary)]" ref={sectionRef}>
       <div className="absolute top-1/3 right-0 w-96 h-96 bg-violet-600/5 rounded-full blur-[100px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
@@ -75,16 +75,17 @@ export default function Projects() {
 
 function ProjectCard({ project, index }: { project: (typeof projects)[0]; index: number }) {
   const isPawfect = project.name === "Pawfect BD";
+  const isDemo = "demo" in project && project.demo === true;
 
   return (
     <div
-      className="fade-in-section glass-card rounded-2xl overflow-hidden group hover:border-violet-500/40 hover:-translate-y-1 transition-all duration-300"
+      className="fade-in-section glass-card rounded-2xl overflow-hidden group hover:border-violet-500/40 hover:-translate-y-1 transition-all duration-300 flex flex-col"
       style={{ transitionDelay: `${index * 60}ms` }}
     >
       {/* Gradient top bar */}
       <div className={`h-1.5 w-full bg-gradient-to-r ${project.gradient}`} />
 
-      <div className="p-6 pb-5">
+      <div className="p-6 pb-5 flex flex-col flex-1">
         <div className="flex items-start justify-between gap-3 mb-3">
           <div className="flex items-center gap-2">
             {isPawfect && <span className="text-orange-400 text-lg">🐾</span>}
@@ -93,6 +94,11 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
             </h3>
           </div>
           <div className="flex items-center gap-2 flex-shrink-0">
+            {isDemo && (
+              <span className="text-xs text-blue-500 bg-blue-500/10 border border-blue-500/20 px-2 py-0.5 rounded-full font-medium">
+                Demo
+              </span>
+            )}
             {project.featured && (
               <span className="flex items-center gap-1 text-xs text-amber-500 bg-amber-400/10 border border-amber-400/20 px-2 py-0.5 rounded-full">
                 <StarFilled style={{ fontSize: 10 }} /> Featured
@@ -139,6 +145,19 @@ function ProjectCard({ project, index }: { project: (typeof projects)[0]; index:
             <Tag key={tech} className="!text-xs !px-2 !py-0">{tech}</Tag>
           ))}
         </div>
+
+        {isDemo && (
+          <button
+            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+            className="mt-4 w-full flex items-center justify-center gap-2 py-2.5 rounded-xl border border-blue-500/30 bg-blue-500/8 text-blue-500 text-xs font-semibold hover:bg-blue-500/15 hover:border-blue-500/50 transition-all duration-200 group/cta"
+          >
+            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+            Need a similar site? Let&apos;s build yours
+            <svg className="w-3 h-3 group-hover/cta:translate-x-0.5 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
+            </svg>
+          </button>
+        )}
       </div>
     </div>
   );

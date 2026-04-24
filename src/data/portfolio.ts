@@ -174,6 +174,22 @@ export const projects = [
     stack: ["WordPress", "ElementorPro", "Stripe"],
     gradient: "from-indigo-500 to-purple-600",
   },
+  {
+    id: 8,
+    name: "Plumber Landing Page",
+    category: "Client Project",
+    url: "https://miansit.github.io/Plumbing-Landing/",
+    featured: false,
+    demo: true,
+    description:
+      "Professional plumbing service landing page where customers can learn about services and book appointments online — built as a client demo.",
+    highlights: [
+      "Appointment booking flow letting customers schedule plumbing services directly from the page",
+      "Clean, conversion-focused layout with service highlights and call-to-action sections",
+    ],
+    stack: ["Next.js", "React", "Tailwind CSS"],
+    gradient: "from-blue-500 to-cyan-600",
+  },
 ];
 
 export const skills = {

@@ -43,6 +43,7 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 80px;
+  overflow-x: hidden;
 }
 
 body {
@@ -91,7 +92,8 @@ body {
 .glow-violet { box-shadow: 0 0 30px rgba(99,102,241,0.2); }
 .glow-cyan   { box-shadow: 0 0 30px rgba(34,211,238,0.2); }
 
-.section-padding { padding: 96px 0; }
+.section-padding { padding: 60px 0; }
+@media (min-width: 768px) { .section-padding { padding: 96px 0; } }
 
 /* ── Animated background (hero) ──────────────────────── */
 .animated-bg {

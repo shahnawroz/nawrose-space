@@ -33,7 +33,7 @@ export default function About() {
   }, []);
 
   return (
-    <section id="about" className="section-padding relative bg-[var(--bg-primary)]" ref={sectionRef}>
+    <section id="about" className="section-padding relative overflow-hidden bg-[var(--bg-primary)]" ref={sectionRef}>
       <div className="absolute top-0 right-0 w-96 h-96 bg-violet-600/5 rounded-full blur-[80px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
@@ -53,7 +53,7 @@ export default function About() {
           <div className="fade-in-section flex flex-col items-center lg:items-start gap-8">
             <div className="relative group">
               <div className="absolute -inset-1 bg-gradient-to-br from-violet-600 to-cyan-500 rounded-2xl blur-sm opacity-40 group-hover:opacity-70 transition-opacity duration-500" />
-              <div className="relative w-72 h-72 rounded-2xl overflow-hidden glass-card">
+              <div className="relative w-56 h-56 sm:w-64 sm:h-64 md:w-72 md:h-72 rounded-2xl overflow-hidden glass-card">
                 <Image
                   src="/profile.png"
                   alt="Shah Nawrose"
@@ -70,7 +70,7 @@ export default function About() {
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 w-full max-w-sm lg:max-w-full">
+            <div className="grid grid-cols-3 gap-2 sm:gap-4 w-full max-w-sm lg:max-w-full">
               {stats.map((stat) => (
                 <div
                   key={stat.label}

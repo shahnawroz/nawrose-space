@@ -47,7 +47,7 @@ export default function Navbar() {
           : "bg-transparent"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 h-[72px] flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 h-[72px] flex items-center justify-between">
         {/* Logo */}
         <a
           href="#"
@@ -57,7 +57,7 @@ export default function Navbar() {
           <div className="w-9 h-9 rounded-lg bg-gradient-to-br from-violet-600 to-cyan-500 flex items-center justify-center text-white font-bold text-base shadow-lg shadow-violet-500/30">
             SN
           </div>
-          <span className="text-[var(--text-1)] font-semibold text-lg tracking-tight transition-colors">
+          <span className="text-[var(--text-1)] font-semibold text-base sm:text-lg tracking-tight transition-colors">
             Shah Nawrose
           </span>
         </a>
@@ -88,12 +88,12 @@ export default function Navbar() {
           {/* 🌙 / ☀️ Theme Toggle */}
           <ThemeToggle />
 
-          <a
-            href="mailto:sh.nawrose@gmail.com"
+          <button
+            onClick={() => { document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
             className="hidden md:inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-gradient-to-r from-violet-600 to-cyan-500 text-white text-sm font-medium shadow-lg shadow-violet-500/30 hover:shadow-violet-500/50 hover:scale-105 transition-all duration-200"
           >
             Hire Me
-          </a>
+          </button>
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
@@ -119,12 +119,12 @@ export default function Navbar() {
               </li>
             ))}
             <li className="pt-2">
-              <a
-                href="mailto:sh.nawrose@gmail.com"
-                className="flex items-center justify-center px-4 py-3 rounded-lg bg-gradient-to-r from-violet-600 to-cyan-500 text-white text-sm font-medium"
+              <button
+                onClick={() => { setMenuOpen(false); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
+                className="w-full flex items-center justify-center px-4 py-3 rounded-lg bg-gradient-to-r from-violet-600 to-cyan-500 text-white text-sm font-medium"
               >
                 Hire Me
-              </a>
+              </button>
             </li>
           </ul>
         </div>

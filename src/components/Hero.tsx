@@ -101,33 +101,35 @@ export default function Hero() {
       <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none opacity-50" />
 
       {/* Gradient orbs */}
-      <div className="absolute top-1/4 left-1/4 w-[500px] h-[500px] bg-violet-600/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-cyan-500/8 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/4 w-[200px] h-[200px] md:w-[350px] md:h-[350px] lg:w-[500px] lg:h-[500px] bg-violet-600/10 rounded-full blur-[80px] md:blur-[120px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/4 w-[150px] h-[150px] md:w-[280px] md:h-[280px] lg:w-[400px] lg:h-[400px] bg-cyan-500/8 rounded-full blur-[60px] md:blur-[100px] pointer-events-none" />
 
-      <div className="relative z-10 max-w-5xl mx-auto px-6 text-center">
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
         {/* Badge */}
-        <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-violet-500/30 bg-violet-500/10 mb-8">
-          <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse" />
-          <span className="text-violet-500 dark:text-violet-300 text-sm font-medium">
-            Available for freelance &amp; full-time roles
-          </span>
+        <div className="flex justify-center mb-8">
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full border border-violet-500/30 bg-violet-500/10 max-w-full">
+            <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse flex-shrink-0" />
+            <span className="text-violet-500 dark:text-violet-300 text-xs sm:text-sm font-medium">
+              Available for freelance &amp; full-time roles
+            </span>
+          </div>
         </div>
 
         {/* Name */}
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-extrabold text-[var(--text-1)] mb-4 leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-extrabold text-[var(--text-1)] mb-4 leading-tight">
           Hi, I&apos;m <span className="gradient-text">Shah Nawrose</span>
         </h1>
 
         {/* Typewriter */}
-        <div className="text-xl md:text-3xl font-semibold text-[var(--text-2)] mb-6 h-10 flex items-center justify-center gap-2">
-          <span className="text-cyan-500">&lt;</span>
-          <span className="font-mono text-cyan-500 dark:text-cyan-300">{displayed}</span>
-          <span className="w-[2px] h-6 bg-cyan-500 animate-pulse" />
-          <span className="text-cyan-500">/&gt;</span>
+        <div className="mb-6 min-h-[36px] sm:min-h-[44px] flex items-center justify-center gap-1 sm:gap-2 overflow-hidden">
+          <span className="text-cyan-500 text-base sm:text-xl md:text-3xl">&lt;</span>
+          <span className="font-mono text-cyan-500 dark:text-cyan-300 text-sm sm:text-xl md:text-3xl font-semibold truncate max-w-[200px] sm:max-w-none">{displayed}</span>
+          <span className="w-[2px] h-5 sm:h-7 bg-cyan-500 animate-pulse flex-shrink-0" />
+          <span className="text-cyan-500 text-base sm:text-xl md:text-3xl">/&gt;</span>
         </div>
 
         {/* Tagline */}
-        <p className="text-[var(--text-2)] text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
+        <p className="text-[var(--text-2)] text-base sm:text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed">
           {personalInfo.tagline}
         </p>
 
@@ -143,14 +145,14 @@ export default function Hero() {
           <a
             href="#projects"
             onClick={(e) => { e.preventDefault(); document.getElementById("projects")?.scrollIntoView({ behavior: "smooth" }); }}
-            className="px-8 py-4 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 text-white font-semibold text-lg shadow-xl shadow-violet-500/30 hover:shadow-violet-500/50 hover:scale-105 transition-all duration-300"
+            className="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-500 text-white font-semibold text-base sm:text-lg shadow-xl shadow-violet-500/30 hover:shadow-violet-500/50 hover:scale-105 transition-all duration-300 text-center"
           >
             View My Work
           </a>
           <a
             href="#contact"
             onClick={(e) => { e.preventDefault(); document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }); }}
-            className="px-8 py-4 rounded-xl border border-[var(--border)] text-[var(--text-2)] font-semibold text-lg hover:border-violet-500 hover:text-violet-500 hover:bg-violet-500/10 transition-all duration-300"
+            className="w-full sm:w-auto px-8 py-4 rounded-xl border border-[var(--border)] text-[var(--text-2)] font-semibold text-base sm:text-lg hover:border-violet-500 hover:text-violet-500 hover:bg-violet-500/10 transition-all duration-300 text-center"
           >
             Get In Touch
           </a>

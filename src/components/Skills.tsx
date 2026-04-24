@@ -28,8 +28,8 @@ export default function Skills() {
   }, []);
 
   return (
-    <section id="skills" className="section-padding relative section-alt" ref={sectionRef}>
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[600px] h-64 bg-violet-600/5 rounded-full blur-[80px] pointer-events-none" />
+    <section id="skills" className="section-padding relative overflow-hidden section-alt" ref={sectionRef}>
+      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-full max-w-[600px] h-64 bg-violet-600/5 rounded-full blur-[80px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6">
         <div className="fade-in-section mb-16 text-center">

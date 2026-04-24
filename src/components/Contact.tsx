@@ -35,12 +35,23 @@ export default function Contact() {
     return () => observer.disconnect();
   }, []);
 
-  const handleSubmit = async () => {
+  const handleSubmit = async (values: { name: string; email: string; subject: string; message: string }) => {
     setLoading(true);
-    await new Promise((r) => setTimeout(r, 1500));
-    message.success("Message sent! I'll get back to you soon.");
-    form.resetFields();
-    setLoading(false);
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(values),
+      });
+      const data = await res.json();
+      if (!res.ok) throw new Error(data.error || "Failed to send");
+      message.success("Message sent! I'll get back to you soon.");
+      form.resetFields();
+    } catch (err: unknown) {
+      message.error(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   const contactItems: ContactItem[] = [
@@ -77,7 +88,7 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="section-padding relative bg-[var(--bg-primary)]" ref={sectionRef}>
+    <section id="contact" className="section-padding relative overflow-hidden bg-[var(--bg-primary)]" ref={sectionRef}>
       <div className="absolute top-1/2 right-0 w-[400px] h-[400px] bg-violet-600/5 rounded-full blur-[100px] pointer-events-none" />
       <div className="absolute bottom-0 left-0 w-80 h-80 bg-cyan-500/5 rounded-full blur-[80px] pointer-events-none" />
 
@@ -151,10 +162,10 @@ export default function Contact() {
 
           {/* Right: Form */}
           <div className="fade-in-section">
-            <div className="glass-card rounded-2xl p-8">
+            <div className="glass-card rounded-2xl p-5 sm:p-8">
               <h3 className="text-[var(--text-1)] font-bold text-xl mb-6">Send a Message</h3>
               <Form form={form} layout="vertical" onFinish={handleSubmit}>
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <Form.Item
                     name="name"
                     label={<span className="text-[var(--text-3)] text-sm">Your Name</span>}

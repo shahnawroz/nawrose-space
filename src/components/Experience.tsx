@@ -27,7 +27,7 @@ export default function Experience() {
       />
     ),
     children: (
-      <div className="glass-card rounded-2xl p-6 hover:border-violet-500/40 transition-all duration-300 group mb-2 ml-2" style={{ marginTop: "-4px" }}>
+      <div className="glass-card rounded-2xl p-4 sm:p-6 hover:border-violet-500/40 transition-all duration-300 group mb-2 ml-2" style={{ marginTop: "-4px" }}>
         <div className="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-3 mb-4">
           <div>
             <div className="flex items-center gap-2 flex-wrap">
@@ -67,7 +67,7 @@ export default function Experience() {
   }));
 
   return (
-    <section id="experience" className="section-padding relative section-alt" ref={sectionRef}>
+    <section id="experience" className="section-padding relative overflow-hidden section-alt" ref={sectionRef}>
       <div className="absolute top-1/2 left-0 w-80 h-80 bg-cyan-500/5 rounded-full blur-[80px] pointer-events-none" />
 
       <div className="max-w-4xl mx-auto px-6">
